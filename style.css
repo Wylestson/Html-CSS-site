@@ -1,0 +1,170 @@
+/* ---------- GLOBAL ---------- */
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #330101;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2vh;
+  background-color: #c00202;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+.navbar a:hover {
+  color: #000000;
+  transform: scale(1.1);
+}
+
+.contact {
+  width: 3rem;
+}
+
+/* ---------- HERO (DESKTOP) ---------- */
+.hero {
+  height: 100vh;
+  background-image: url("portfolio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Image du haut cachée sur PC */
+.img-mobile-top {
+  display: none;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  text-align: right;
+  padding-right: 5vw;
+  margin: 0;
+  line-height: 1;
+}
+
+.hero h2 {
+  font-size: clamp(1.5rem, 4vw, 4rem);
+  text-align: left;
+  padding-left: 5vw;
+  padding-bottom: 3vw;
+  margin: 0;
+  line-height: 1;
+}
+
+/* ---------- PRESENTATION ---------- */
+.presentation {
+  text-align: center;
+  width: 80%;
+  margin: 5vw auto;
+  font-size: 1.5rem;
+}
+
+/* ---------- CARDS ---------- */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 90%;
+  margin: 0 auto 5vw;
+}
+
+.card {
+  background-color: rgb(109, 18, 18);
+  border: 0.2rem solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: scale(1.05);
+}
+
+.logo {
+  height: 15rem;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.video {
+  width: 100%;
+}
+
+/* ---------- RESPONSIVE (MOBILE) ---------- */
+@media screen and (max-width: 800px) {
+  
+  /* Hero mobile */
+  .hero {
+    background-image: url("mobile.png");
+    background-size: 100% auto;
+    background-position: top center;
+    justify-content: center;
+    padding-top: 5vh;
+  }
+
+  /* Affiche l'image du haut UNIQUEMENT sur mobile */
+  .img-mobile-top {
+    display: block;
+    width: 100px;
+    margin: 0 auto 20px auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.5rem, 8vw, 3rem);
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .hero h2 {
+    font-size: clamp(1.2rem, 7vw, 2.2rem);
+    text-align: center;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  /* Cards mobile */
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Présentation mobile */
+  .presentation {
+    font-size: 1.2rem;
+  }
+
+  /* Icone contact mobile */
+  .contact {
+    width: 2.5rem;
+  }
+}
+
+/* ---------- IMAGE MOBILE TOP ---------- */
+.img-mobile-top {
+  width: 50%;
+  height: auto;
+}
