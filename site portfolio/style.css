@@ -1,6 +1,6 @@
 /* ---------- GLOBAL ---------- */
 html {
-  font-size: 16px; /* base pour rem */
+  font-size: 16px;
 }
 
 body {
@@ -23,27 +23,39 @@ body {
 .navbar a {
   text-decoration: none;
   color: #ffffff;
-  font-size: 1.5rem; /* zoom navigateur fonctionne */
+  font-size: 1.5rem;
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+.navbar a:hover {
+  color: #000000;
+  transform: scale(1.1);
 }
 
 .contact {
-  width: 3rem; /* taille icône */
-  cursor: pointer;
+  width: 3rem;
 }
 
-/* ---------- HERO ---------- */
+/* ---------- HERO (DESKTOP) ---------- */
 .hero {
   height: 100vh;
-  background-image: url("presentation.png");
+  background-image: url("portfolio.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Texte en bas sur PC */
+}
+
+/* Image du haut cachée sur PC */
+.img-mobile-top {
+  display: none;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 5rem); /* responsive et minimum 2rem */
+  font-size: clamp(2rem, 5vw, 5rem);
   text-align: right;
   padding-right: 5vw;
   margin: 0;
@@ -59,15 +71,14 @@ body {
   line-height: 1;
 }
 
-/* ---------- PRESENTATION TEXT ---------- */
+/* ---------- PRESENTATION & CARDS ---------- */
 .presentation {
   text-align: center;
   width: 80%;
   margin: 5vw auto;
-  font-size: 1.5rem; /* zoom navigateur fonctionne */
+  font-size: 1.5rem;
 }
 
-/* ---------- CARDS ---------- */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -93,27 +104,48 @@ body {
   transform: scale(1.05);
 }
 
-/* ---------- MEDIA ---------- */
 .logo {
   height: 15rem;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .video {
   width: 100%;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-  .cards-container {
-    grid-template-columns: 1fr;
+/* ---------- RESPONSIVE (MOBILE) ---------- */
+@media screen and (max-width: 800px) {
+  .hero {
+    background-image: url("mobile.png"); /* Nouveau fond mobile */
+    background-size: 100% auto;       /* DÉZOOM : l'image prend la largeur exacte */
+    background-position: top center;   /* Calé en haut */
+    justify-content: center;           /* Centre le contenu sur mobile */
+    padding-top: 5vh;
+  }
+
+  /* Affiche l'image du haut UNIQUEMENT sur mobile */
+  .img-mobile-top {
+    display: block;
+    width: 100px;
+    margin: 0 auto 20px auto;
   }
 
   .hero h1 {
-    font-size: clamp(1.5rem, 8vw, 4rem);
+    font-size: clamp(1.5rem, 8vw, 3rem);
+    text-align: center;
+    padding-right: 0;
   }
 
   .hero h2 {
-    font-size: clamp(1.2rem, 7vw, 3.5rem);
+    font-size: clamp(1.2rem, 7vw, 2.2rem);
+    text-align: center;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
   }
 
   .presentation {
@@ -123,12 +155,9 @@ body {
   .contact {
     width: 2.5rem;
   }
+}
+.img-mobile-top{
+  width: 50%;    /* L'image prend toute la largeur de son parent */
+  height: auto;   /* Conserve les proportions d'origine */
+}
 
-  .logo {
-    height: 12rem;
-  }
-}
-a:hover{
-  color: #000000;
-  transform: scale(1.3);
-}
